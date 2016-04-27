@@ -12,6 +12,9 @@
         "lib/sl50/": [
             "../../src/Portable.ConcurrentDictionary.SL50/Bin/Release/*.dll"
         ],
+        "lib/wp80/": [
+            "../../src/Portable.ConcurrentDictionary.WP80/Bin/Release/*.dll"
+        ],
         "lib/wp81/": [
             "../../src/Portable.ConcurrentDictionary.WP81/Bin/Release/*.dll"
         ]
