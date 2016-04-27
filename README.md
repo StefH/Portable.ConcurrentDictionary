@@ -36,3 +36,6 @@ con.TryUpdate("cat", 100, 1);
 // Write new value.
 Console.WriteLine(con["cat"]);
 ```
+
+
+This project is slightly based on https://github.com/SaladLab/NetLegacySupport
