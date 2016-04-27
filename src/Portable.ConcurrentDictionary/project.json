@@ -1,0 +1,37 @@
+﻿{
+    "version": "1.0.0-*",
+    "title": "Portable.ConcurrentDictionary",
+    "description": "This is a Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 backport from System.Collections.Concurrent.ConcurrentDictionary as defined in .NET Core",
+    "summary": "This is a Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 backport from System.Collections.Concurrent.ConcurrentDictionary as defined in .NET Core",
+    "authors": [ "Stef Heyenrath" ],
+    "tags": [ "Dictionary", "ConcurrentDictionary", "Collections", "System.Collections.Concurrent" ],
+    "projectUrl": "https://github.com/StefH/Portable.ConcurrentDictionary",
+    "licenseUrl": "https://raw.githubusercontent.com/StefH/Portable.ConcurrentDictionary/master/LICENSE",
+
+    "packInclude": {
+        "lib/sl50/": [
+            "../../src/Portable.ConcurrentDictionary.SL50/Bin/Release/*.dll"
+        ],
+        "lib/wp81/": [
+            "../../src/Portable.ConcurrentDictionary.WP81/Bin/Release/*.dll"
+        ]
+    },
+
+    "frameworks": {
+        ".NETPortable,Version=v4.5,Profile=Profile259": {
+            "compilationOptions": {
+                "define": [ "PORTABLE" ]
+            },
+            "frameworkAssemblies": {
+                "Microsoft.CSharp": "",
+                "System": "",
+                "System.Collections": "",
+                "System.Diagnostics.Debug": "",
+                "System.Reflection": "",
+                "System.Runtime": "",
+                "System.Runtime.Extensions": "",
+                "System.Threading": ""
+            }
+        }
+    }
+}
