@@ -1,4 +1,7 @@
 # Portable.ConcurrentDictionary
+
+[![Build status](https://ci.appveyor.com/api/projects/status/4ujh5c5qvabw5i5p?svg=true)](https://ci.appveyor.com/project/StefH/Portable.ConcurrentDictionary)
+
 Portable, Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 implementation of the ConcurrentDictionary
 
 This is a backport from System.Collections.Concurrent.ConcurrentDictionary defined in .NET Core and this library helps supporting frameworks like:
