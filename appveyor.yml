@@ -8,4 +8,7 @@ build:
   verbosity: minimal
 
 build_script:
+- cmd: msbuild src\Portable.ConcurrentDictionary.SL50\Portable.ConcurrentDictionary.SL50.csproj
+- cmd: msbuild src\Portable.ConcurrentDictionary.WP80\Portable.ConcurrentDictionary.WP80.csproj
+- cmd: msbuild src\Portable.ConcurrentDictionary.WP81\Portable.ConcurrentDictionary.WP81.csproj
 - cmd: dnu build src\Portable.ConcurrentDictionary

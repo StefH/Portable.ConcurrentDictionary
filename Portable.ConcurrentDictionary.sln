@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BB3FEC78-35B0-41B7-B03E-29E193C897FD}"
 EndProject
@@ -14,7 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Portable.ConcurrentDictionary", "src\Portable.ConcurrentDictionary\Portable.ConcurrentDictionary.xproj", "{84C959D9-92F5-4A9E-B02A-3339D8F86374}"
 	ProjectSection(ProjectDependencies) = postProject
-		{B9B07714-3CF1-4E0D-933D-D8D76ED1A74E} = {B9B07714-3CF1-4E0D-933D-D8D76ED1A74E}
 		{81EB5618-A06D-4A29-8888-FD205DCCB73B} = {81EB5618-A06D-4A29-8888-FD205DCCB73B}
 		{81EB5618-A06D-4A29-9047-FD205DCCB73B} = {81EB5618-A06D-4A29-9047-FD205DCCB73B}
 	EndProjectSection
