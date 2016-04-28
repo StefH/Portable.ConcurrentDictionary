@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BB3FEC78-35B0-41B7-B03E-29E193C897FD}"
 EndProject
@@ -25,6 +25,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7451738D-7268-450E-BFEB-3B2DA27AA342}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.ConcurrentDictionary.WP80", "src\Portable.ConcurrentDictionary.WP80\Portable.ConcurrentDictionary.WP80.csproj", "{81EB5618-A06D-4A29-8888-FD205DCCB73B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverlight50Application", "examples\Silverlight50Application\Silverlight50Application.csproj", "{66990FE8-E999-46F8-8853-BBAE5C760024}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84C959D9-92F5-4A9E-B02A-3339D8F86374} = {84C959D9-92F5-4A9E-B02A-3339D8F86374}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{A4ED29A2-3160-4618-B442-B6F7AF1FBC2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverlight50Application.UsingPortable", "examples\Silverlight50Application.UsingPortable\Silverlight50Application.UsingPortable.csproj", "{A298588F-92ED-4B8D-BAE1-86BD94193351}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84C959D9-92F5-4A9E-B02A-3339D8F86374} = {84C959D9-92F5-4A9E-B02A-3339D8F86374}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +96,30 @@ Global
 		{81EB5618-A06D-4A29-8888-FD205DCCB73B}.Release|ARM.Build.0 = Release|ARM
 		{81EB5618-A06D-4A29-8888-FD205DCCB73B}.Release|x86.ActiveCfg = Release|x86
 		{81EB5618-A06D-4A29-8888-FD205DCCB73B}.Release|x86.Build.0 = Release|x86
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|ARM.Build.0 = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Debug|x86.Build.0 = Debug|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|ARM.ActiveCfg = Release|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|ARM.Build.0 = Release|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|x86.ActiveCfg = Release|Any CPU
+		{66990FE8-E999-46F8-8853-BBAE5C760024}.Release|x86.Build.0 = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Debug|x86.Build.0 = Debug|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|ARM.Build.0 = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|x86.ActiveCfg = Release|Any CPU
+		{A298588F-92ED-4B8D-BAE1-86BD94193351}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +129,7 @@ Global
 		{B9B07714-3CF1-4E0D-933D-D8D76ED1A74E} = {BB3FEC78-35B0-41B7-B03E-29E193C897FD}
 		{81EB5618-A06D-4A29-9047-FD205DCCB73B} = {BB3FEC78-35B0-41B7-B03E-29E193C897FD}
 		{81EB5618-A06D-4A29-8888-FD205DCCB73B} = {BB3FEC78-35B0-41B7-B03E-29E193C897FD}
+		{66990FE8-E999-46F8-8853-BBAE5C760024} = {A4ED29A2-3160-4618-B442-B6F7AF1FBC2F}
+		{A298588F-92ED-4B8D-BAE1-86BD94193351} = {A4ED29A2-3160-4618-B442-B6F7AF1FBC2F}
 	EndGlobalSection
 EndGlobal
