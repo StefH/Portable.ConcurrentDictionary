@@ -61,9 +61,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="Portable.ConcurrentDictionary">
+    <Reference Include="Portable.ConcurrentDictionary, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\artifacts\bin\Portable.ConcurrentDictionary\$(Configuration)\portable-net45+sl50\Portable.ConcurrentDictionary.dll</HintPath>
+      <HintPath>..\..\src\Portable.ConcurrentDictionary\bin\$(Configuration)\portable40-net45+sl5\Portable.ConcurrentDictionary.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
