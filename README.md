@@ -1,6 +1,6 @@
 # Portable.ConcurrentDictionary
 
-[![Build status](https://ci.appveyor.com/api/projects/status/4ujh5c5qvabw5i5p?svg=true)](https://ci.appveyor.com/project/StefH/Portable.ConcurrentDictionary)
+[![Build status](https://ci.appveyor.com/api/projects/status/4ujh5c5qvabw5i5p?svg=true)](https://ci.appveyor.com/project/StefH/portable-concurrentdictionary)
 
 Portable, Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 implementation of the ConcurrentDictionary
 
