@@ -1,5 +1,5 @@
 ﻿{
-    "version": "1.0.2-*",
+    "version": "1.0.3-*",
     "title": "Portable.ConcurrentDictionary",
     "description": "This is a Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 backport from System.Collections.Concurrent.ConcurrentDictionary as defined in .NET Core",
     "authors": [ "Stef Heyenrath" ],
@@ -13,7 +13,7 @@
         },
         "projectUrl": "https://github.com/StefH/Portable.ConcurrentDictionary",
         "licenseUrl": "https://raw.githubusercontent.com/StefH/Portable.ConcurrentDictionary/master/LICENSE",
-        "releaseNotes": "dotnet rc2",
+        "releaseNotes": "Strong name this library.",
 
         "lib/wp80/": [
             "../../src/Portable.ConcurrentDictionary.WP80/Bin/Release/*.dll"
@@ -21,6 +21,10 @@
         "lib/wp81/": [
             "../../src/Portable.ConcurrentDictionary.WP81/Bin/Release/*.dll"
         ]
+    },
+
+    "buildOptions": {
+        "keyFile": "Portable.ConcurrentDictionary.key"
     },
 
     "frameworks": {
