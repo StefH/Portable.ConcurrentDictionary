@@ -1,6 +1,6 @@
 os: Visual Studio 2015
 
-version: 1.0.2.{build}
+version: 1.0.4.{build}
 
 configuration:
 - Debug
@@ -19,14 +19,11 @@ environment:
   PATH: $(PATH);$(PROGRAMFILES)\dotnet\
 
 build_script:
-- appveyor-retry dotnet restore src\Portable.ConcurrentDictionary -v Minimal
-
-- dotnet build src\Portable.ConcurrentDictionary\Portable.ConcurrentDictionary.csproj -c %CONFIGURATION%
-
-- dotnet pack -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o .\artifacts .\src\Portable.ConcurrentDictionary\Portable.ConcurrentDictionary.csproj
+- appveyor-retry dotnet restore -v Minimal
+- msbuild Portable.ConcurrentDictionary.sln /p:Configuration=Release /p:VersionSuffix=%LABEL%
 
 artifacts:
-- path: artifacts\**\*.*
+- path: Release\**\*.nupkg
 
 cache:
 - '%USERPROFILE%\.nuget\packages'
