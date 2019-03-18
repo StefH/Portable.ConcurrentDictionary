@@ -1,11 +1,11 @@
-﻿#if SILVERLIGHT
-/// <summary>
-/// Copied from https://github.com/SaladLab/NetLegacySupport/blob/master/core/ConcurrentDictionary/System/Collections/Concurrent/FrameworkTraits.cs
-/// </summary>
+﻿
 namespace System.Threading
 {
+
+#if !NETSTANDARD1_0 && !PROFILE111
     internal static class Volatile
     {
+
         public static T Read<T>(ref T location) where T : class
         {
             // 
@@ -24,6 +24,8 @@ namespace System.Threading
             Thread.MemoryBarrier();
             location = value;
         }
+
     }
-}
 #endif
+
+}

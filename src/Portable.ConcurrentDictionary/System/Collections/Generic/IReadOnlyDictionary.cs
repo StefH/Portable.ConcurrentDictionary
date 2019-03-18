@@ -1,97 +1,87 @@
-﻿#region Assembly System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-// C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\System.Runtime.dll
-#endregion
+﻿using System.Reflection;
 
-using System.Reflection;
-
-#if SILVERLIGHT
 namespace System.Collections.Generic
 {
-    //
-    // Summary:
-    //     Represents a generic read-only collection of key/value pairs.
-    //
-    // Type parameters:
-    //   TKey:
-    //     The type of keys in the read-only dictionary.
-    //
-    //   TValue:
-    //     The type of values in the read-only dictionary.
-    // [DefaultMember("Item")] STEF
-    public interface IReadOnlyDictionary<TKey, TValue> : IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable
+
+#if NET20 || NET35 || NET40 || PORTABLE
+    /// <summary>
+    /// Represents a generic read-only collection of key/value pairs.
+    /// </summary>
+    /// <typeparam name="TKey">
+    /// The type of keys in the read-only dictionary.
+    /// </typeparam>
+    /// <typeparam name="TValue">
+    /// The type of values in the read-only dictionary.
+    /// </typeparam>
+    //[DefaultMember("Item")]
+    public interface IReadOnlyDictionary<TKey, TValue> 
+        : IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable
     {
-        //
-        // Summary:
-        //     Gets the element that has the specified key in the read-only dictionary.
-        //
-        // Parameters:
-        //   key:
-        //     The key to locate.
-        //
-        // Returns:
-        //     The element that has the specified key in the read-only dictionary.
-        //
-        // Exceptions:
-        //   T:System.ArgumentNullException:
-        //     key is null.
-        //
-        //   T:System.Collections.Generic.KeyNotFoundException:
-        //     The property is retrieved and key is not found.
+        
+        /// <summary>
+        /// Gets the element that has the specified key in the read-only dictionary.
+        /// </summary>
+        /// <param name="key">
+        /// The key to locate.
+        /// </param>
+        /// <returns>
+        /// The element that has the specified key in the read-only dictionary.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// key is null.
+        /// </exception>
+        /// <exception cref="KeyNotFoundException">
+        /// The property is retrieved and key is not found.
+        /// </exception>
         TValue this[TKey key] { get; }
 
-        //
-        // Summary:
-        //     Gets an enumerable collection that contains the keys in the read-only dictionary.
-        //
-        // Returns:
-        //     An enumerable collection that contains the keys in the read-only dictionary.
+        /// <summary>
+        /// Gets an enumerable collection that contains the keys in the read-only dictionary.
+        /// </summary>
+        /// <returns>
+        /// An enumerable collection that contains the keys in the read-only dictionary.
+        /// </returns>
         IEnumerable<TKey> Keys { get; }
-        //
-        // Summary:
-        //     Gets an enumerable collection that contains the values in the read-only dictionary.
-        //
-        // Returns:
-        //     An enumerable collection that contains the values in the read-only dictionary.
+     
+        /// <summary>
+        /// Gets an enumerable collection that contains the values in the read-only dictionary.
+        /// </summary>
+        /// <returns>
+        /// An enumerable collection that contains the values in the read-only dictionary.
+        /// </returns>
         IEnumerable<TValue> Values { get; }
 
-        //
-        // Summary:
-        //     Determines whether the read-only dictionary contains an element that has the
-        //     specified key.
-        //
-        // Parameters:
-        //   key:
-        //     The key to locate.
-        //
-        // Returns:
-        //     true if the read-only dictionary contains an element that has the specified key;
-        //     otherwise, false.
-        //
-        // Exceptions:
-        //   T:System.ArgumentNullException:
-        //     key is null.
+        /// <summary>
+        /// Determines whether the read-only dictionary contains an element that has the specified key.
+        /// </summary>
+        /// <param name="key">
+        /// The key to locate.
+        /// </param>
+        /// <returns>
+        /// true if the read-only dictionary contains an element that has the specified key;
+        ///    otherwise, false.
+        /// </returns>
         bool ContainsKey(TKey key);
-        //
-        // Summary:
-        //     Gets the value that is associated with the specified key.
-        //
-        // Parameters:
-        //   key:
-        //     The key to locate.
-        //
-        //   value:
-        //     When this method returns, the value associated with the specified key, if the
-        //     key is found; otherwise, the default value for the type of the value parameter.
-        //     This parameter is passed uninitialized.
-        //
-        // Returns:
-        //     true if the object that implements the System.Collections.Generic.IReadOnlyDictionary`2
-        //     interface contains an element that has the specified key; otherwise, false.
-        //
-        // Exceptions:
-        //   T:System.ArgumentNullException:
-        //     key is null.
+
+        /// <summary>
+        /// Gets the value that is associated with the specified key.
+        /// </summary>
+        /// <param name="key">The key to locate.</param>
+        /// <param name="value">
+        /// When this method returns, the value associated with the specified key, if the
+        ///    key is found; otherwise, the default value for the type of the value parameter.
+        ///    This parameter is passed uninitialized.
+        /// </param>
+        /// <returns>
+        /// true if the object that implements the System.Collections.Generic.IReadOnlyDictionary`2
+        ///    interface contains an element that has the specified key; otherwise, false.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// key is null.
+        /// </exception>
         bool TryGetValue(TKey key, out TValue value);
+
     }
-}
 #endif
+
+}

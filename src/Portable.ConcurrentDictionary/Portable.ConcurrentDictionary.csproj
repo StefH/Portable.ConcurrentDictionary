@@ -1,0 +1,44 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <Description>This is a .NET Standard 1.0, Silverlight 5.0 and Windows Phone Silverlight 8.0 &amp; 8.1 backport from System.Collections.Concurrent.ConcurrentDictionary as defined in .NET Core</Description>
+    <AssemblyTitle>Portable.ConcurrentDictionary</AssemblyTitle>
+    <VersionPrefix>1.0.4</VersionPrefix>
+    <Authors>Stef Heyenrath</Authors>
+    <TargetFrameworks>netstandard1.0;net20;net35;portable-net45+win8+wpa81;portable-net403+sl5+win8+wpa81+wp8</TargetFrameworks>
+    <AssemblyName>Portable.ConcurrentDictionary</AssemblyName>
+    <AssemblyOriginatorKeyFile>Portable.ConcurrentDictionary.key</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Portable.ConcurrentDictionary</PackageId>
+    <PackageTags>Dictionary;ConcurrentDictionary;Collections;System.Collections.Concurrent</PackageTags>
+    <PackageReleaseNotes>Strong name this library.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/StefH/Portable.ConcurrentDictionary</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/StefH/Portable.ConcurrentDictionary/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/StefH/Portable.ConcurrentDictionary</RepositoryUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'portable-net45+win8+wpa81' ">
+    <DefineConstants>$(DefineConstants);PORTABLE;PROFILE111</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'portable-net403+sl5+win8+wpa81+wp8' ">
+    <DefineConstants>$(DefineConstants);PORTABLE;PROFILE336</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.6.68" PrivateAssets="all" />
+  </ItemGroup>
+  
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+</Project>
