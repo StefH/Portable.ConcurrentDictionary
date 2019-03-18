@@ -1,10 +1,17 @@
 # Portable.ConcurrentDictionary
 
-[![Build status](https://ci.appveyor.com/api/projects/status/4ujh5c5qvabw5i5p?svg=true)](https://ci.appveyor.com/project/StefH/portable-concurrentdictionary)
+## Info
+| | |
+| --- | --- |
+| **Build AppVeyor** | [![Build status](https://ci.appveyor.com/api/projects/status/4ujh5c5qvabw5i5p?svg=true)](https://ci.appveyor.com/project/StefH/portable-concurrentdictionary) |
+| **Portable.ConcurrentDictionary** | [![NuGet Badge Portable.ConcurrentDictionary](https://buildstats.info/nuget/Portable.ConcurrentDictionary)](https://www.nuget.org/packages/Portable.ConcurrentDictionary) |
 
-Portable, Silverlight 5.0 and Windows Phone Silverlight 8.0 & 8.1 implementation of the ConcurrentDictionary
+## Framework support
 
-This is a backport from System.Collections.Concurrent.ConcurrentDictionary defined in .NET Core and this library helps supporting frameworks like:
+This is a backport from System.Collections.Concurrent.ConcurrentDictionary defined in .NET Core and this library helps supporting frameworks:
+ - .NET Standard 1.0
+ - .NET 2.0
+ - .NET 3.5
  - Silverlight 5.0
  - Windows Phone Silverlight 8.0
  - Windows Phone Silverlight 8.1
@@ -15,13 +22,7 @@ This is a backport from System.Collections.Concurrent.ConcurrentDictionary defin
 
 ConcurrentDictionary is quite usuful dictionary with a thread-safe feature.
 
-#### Where can I get it?
-
-```
-PM> Install-Package Portable.ConcurrentDictionary
-```
-
-#### Code that you can write.
+### Examples
 
 ```csharp
 // New instance. (from http://www.dotnetperls.com/concurrentdictionary)
@@ -38,6 +39,5 @@ con.TryUpdate("cat", 100, 1);
 // Write new value.
 Console.WriteLine(con["cat"]);
 ```
-
 
 This project is based on https://github.com/SaladLab/NetLegacySupport
