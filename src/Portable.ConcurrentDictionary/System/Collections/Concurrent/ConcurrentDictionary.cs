@@ -345,7 +345,7 @@ namespace System.Collections.Concurrent
         {
             if (key == null) ThrowKeyNullException();
 
-            return TryRemoveInternal(key, out value, false, default);
+            return TryRemoveInternal(key, out value, false, default(TValue));
         }
 
         /// <summary>
@@ -388,7 +388,7 @@ namespace System.Collections.Concurrent
                                 var valuesMatch = EqualityComparer<TValue>.Default.Equals(oldValue, curr._value);
                                 if (!valuesMatch)
                                 {
-                                    value = default;
+                                    value = default(TValue);
                                     return false;
                                 }
                             }
@@ -410,7 +410,7 @@ namespace System.Collections.Concurrent
                     }
                 }
 
-                value = default;
+                value = default(TValue);
                 return false;
             }
         }
@@ -457,7 +457,7 @@ namespace System.Collections.Concurrent
                 n = n._next;
             }
 
-            value = default;
+            value = default(TValue);
             return false;
         }
 
