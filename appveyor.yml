@@ -1,4 +1,4 @@
-os: Visual Studio 2015
+os: Visual Studio 2017
 
 version: 1.0.2.{build}
 
@@ -21,12 +21,9 @@ environment:
 build_script:
 - appveyor-retry dotnet restore src\Portable.ConcurrentDictionary -v Minimal
 
-- dotnet build src\Portable.ConcurrentDictionary\project.json -c %CONFIGURATION%
-- cmd: msbuild src\Portable.ConcurrentDictionary.SL50\Portable.ConcurrentDictionary.SL50.csproj /p:Configuration=%CONFIGURATION% /p:Platform=AnyCPU
-- cmd: msbuild src\Portable.ConcurrentDictionary.WP80\Portable.ConcurrentDictionary.WP80.csproj /p:Configuration=%CONFIGURATION% /p:Platform=AnyCPU
-- cmd: msbuild src\Portable.ConcurrentDictionary.WP81\Portable.ConcurrentDictionary.WP81.csproj /p:Configuration=%CONFIGURATION% /p:Platform=AnyCPU
+- dotnet build src\Portable.ConcurrentDictionary\Portable.ConcurrentDictionary.csproj -c %CONFIGURATION%
 
-- dotnet pack -c Release --no-build --version-suffix %LABEL% -o .\artifacts .\src\Portable.ConcurrentDictionary\project.json
+- dotnet pack -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o .\artifacts .\src\Portable.ConcurrentDictionary\Portable.ConcurrentDictionary.csproj
 
 artifacts:
 - path: artifacts\**\*.*
