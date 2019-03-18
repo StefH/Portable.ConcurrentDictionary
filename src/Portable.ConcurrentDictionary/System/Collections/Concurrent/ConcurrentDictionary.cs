@@ -501,12 +501,9 @@ namespace System.Collections.Concurrent
         private bool TryUpdateInternal(TKey key, int hashcode, TValue newValue, TValue comparisonValue)
         {
             Debug.Assert(_comparer.GetHashCode(key) == hashcode);
-
             IEqualityComparer<TValue> valueComparer = EqualityComparer<TValue>.Default;
-
             while (true)
             {
-
                 var tables = _tables;
                 GetBucketAndLockNo(hashcode, out var bucketNo, out var lockNo, tables._buckets.Length, tables._locks.Length);
 
@@ -756,10 +753,8 @@ namespace System.Collections.Concurrent
         private bool TryAddInternal(TKey key, int hashcode, TValue value, bool updateIfExists, bool acquireLock, out TValue resultingValue)
         {
             Debug.Assert(_comparer.GetHashCode(key) == hashcode);
-
             while (true)
             {
-
                 var tables = _tables;
                 GetBucketAndLockNo(hashcode, out var bucketNo, out var lockNo, tables._buckets.Length, tables._locks.Length);
 

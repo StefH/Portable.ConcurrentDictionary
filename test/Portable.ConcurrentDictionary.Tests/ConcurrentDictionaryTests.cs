@@ -12,18 +12,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-using IntergerConcurrentDictionary = PortableConcurrentDictionary::System.Collections.Concurrent.ConcurrentDictionary<int, int>;
+using IntegerConcurrentDictionary = PortableConcurrentDictionary::System.Collections.Concurrent.ConcurrentDictionary<int, int>;
 
 namespace Portable.ConcurrentDictionary.Tests
 {
-
     public class ConcurrentDictionaryTests
     {
-
         [Fact]
         public void TestBasicScenarios()
         {
-            var cd = new IntergerConcurrentDictionary();
+            var cd = new IntegerConcurrentDictionary();
 
             var tks = new Task[2];
             tks[0] = Task.Run(() =>
@@ -74,7 +72,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [InlineData(5, 5, 5, 2500)]
         public void TestAdd1(int cLevel, int initSize, int threads, int addsPerThread)
         {
-            var dictConcurrent = new IntergerConcurrentDictionary(cLevel, 1);
+            var dictConcurrent = new IntegerConcurrentDictionary(cLevel, 1);
             IDictionary<int, int> dict = dictConcurrent;
 
             var count = threads;
@@ -139,7 +137,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [InlineData(5, 5, 25000)]
         public void TestUpdate1(int cLevel, int threads, int updatesPerThread)
         {
-            IDictionary<int, int> dict = new IntergerConcurrentDictionary(cLevel, 1);
+            IDictionary<int, int> dict = new IntegerConcurrentDictionary(cLevel, 1);
 
             for (var i = 1; i <= updatesPerThread; i++) dict[i] = i;
 
@@ -203,7 +201,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [InlineData(5, 5, 25000)]
         public void TestRead1(int cLevel, int threads, int readsPerThread)
         {
-            IDictionary<int, int> dict = new IntergerConcurrentDictionary(cLevel, 1);
+            IDictionary<int, int> dict = new IntegerConcurrentDictionary(cLevel, 1);
 
             for (var i = 0; i < readsPerThread; i += 2) dict[i] = i;
 
@@ -246,7 +244,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [InlineData(64, 5, 5000)]
         public void TestRemove1(int cLevel, int threads, int removesPerThread)
         {
-            var dict = new IntergerConcurrentDictionary(cLevel, 1);
+            var dict = new IntegerConcurrentDictionary(cLevel, 1);
             var methodparameters = string.Format("* TestRemove1(cLevel={0}, threads={1}, removesPerThread={2})", cLevel, threads, removesPerThread);
             var N = 2 * threads * removesPerThread;
 
@@ -311,7 +309,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [InlineData(5000)]
         public void TestRemove2(int removesPerThread)
         {
-            var dict = new IntergerConcurrentDictionary();
+            var dict = new IntegerConcurrentDictionary();
 
             for (var i = 0; i < removesPerThread; i++) dict[i] = -i;
 
@@ -360,7 +358,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [Fact]
         public static void TestRemove3()
         {
-            var dict = new IntergerConcurrentDictionary();
+            var dict = new IntegerConcurrentDictionary();
 
             dict[99] = -99;
 
@@ -415,7 +413,7 @@ namespace Portable.ConcurrentDictionary.Tests
 
         private static void TestGetOrAddOrUpdate(int cLevel, int initSize, int threads, int addsPerThread, bool isAdd)
         {
-            var dict = new IntergerConcurrentDictionary(cLevel, 1);
+            var dict = new IntegerConcurrentDictionary(cLevel, 1);
 
             var count = threads;
             using (var mre = new ManualResetEvent(false))
@@ -513,7 +511,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [Fact]
         public static void TestConstructor()
         {
-            var dictionary = new IntergerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1) });
+            var dictionary = new IntegerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1) });
             Assert.False(dictionary.IsEmpty);
             Assert.Equal(1, dictionary.Keys.Count);
             Assert.Equal(1, dictionary.Values.Count);
@@ -531,46 +529,46 @@ namespace Portable.ConcurrentDictionary.Tests
         public static void TestConstructor_Negative()
         {
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary((ICollection<KeyValuePair<int, int>>)null));
+               () => new IntegerConcurrentDictionary((ICollection<KeyValuePair<int, int>>)null));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null collection is passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary((IEqualityComparer<int>)null));
+               () => new IntegerConcurrentDictionary((IEqualityComparer<int>)null));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null IEqualityComparer is passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary((ICollection<KeyValuePair<int, int>>)null, EqualityComparer<int>.Default));
+               () => new IntegerConcurrentDictionary((ICollection<KeyValuePair<int, int>>)null, EqualityComparer<int>.Default));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null collection and non null IEqualityComparer passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1) }, null));
+               () => new IntegerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1) }, null));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when non null collection and null IEqualityComparer passed");
 
             Assert.Throws<ArgumentNullException>(
                () => new ConcurrentDictionary<string, int>(new[] { new KeyValuePair<string, int>(null, 1) }));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when collection has null key passed");
             Assert.Throws<ArgumentException>(
-               () => new IntergerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1), new KeyValuePair<int, int>(1, 2) }));
+               () => new IntegerConcurrentDictionary(new[] { new KeyValuePair<int, int>(1, 1), new KeyValuePair<int, int>(1, 2) }));
             // "TestConstructor:  FAILED.  Constructor didn't throw AE when collection has duplicate keys passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary(1, null, EqualityComparer<int>.Default));
+               () => new IntegerConcurrentDictionary(1, null, EqualityComparer<int>.Default));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null collection is passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary(1, new[] { new KeyValuePair<int, int>(1, 1) }, null));
+               () => new IntegerConcurrentDictionary(1, new[] { new KeyValuePair<int, int>(1, 1) }, null));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null comparer is passed");
 
             Assert.Throws<ArgumentNullException>(
-               () => new IntergerConcurrentDictionary(1, 1, null));
+               () => new IntegerConcurrentDictionary(1, 1, null));
             // "TestConstructor:  FAILED.  Constructor didn't throw ANE when null comparer is passed");
 
             Assert.Throws<ArgumentOutOfRangeException>(
-               () => new IntergerConcurrentDictionary(0, 10));
+               () => new IntegerConcurrentDictionary(0, 10));
             // "TestConstructor:  FAILED.  Constructor didn't throw AORE when <1 concurrencyLevel passed");
 
             Assert.Throws<ArgumentOutOfRangeException>(
-               () => new IntergerConcurrentDictionary(-1, 0));
+               () => new IntegerConcurrentDictionary(-1, 0));
             // "TestConstructor:  FAILED.  Constructor didn't throw AORE when < 0 capacity passed");
         }
 
@@ -728,13 +726,13 @@ namespace Portable.ConcurrentDictionary.Tests
         [Fact]
         public static void TestICollection()
         {
-            ICollection dictionary = new IntergerConcurrentDictionary();
+            ICollection dictionary = new IntegerConcurrentDictionary();
             Assert.False(dictionary.IsSynchronized, "TestICollection:  FAILED.  IsSynchronized returned true!");
 
             var key = -1;
             var value = +1;
             //add one item to the dictionary
-            ((IntergerConcurrentDictionary)dictionary).TryAdd(key, value);
+            ((IntegerConcurrentDictionary)dictionary).TryAdd(key, value);
 
             var objectArray = new object[1];
             dictionary.CopyTo(objectArray, 0);
@@ -756,7 +754,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [Fact]
         public static void TestICollection_Negative()
         {
-            ICollection dictionary = new IntergerConcurrentDictionary();
+            ICollection dictionary = new IntegerConcurrentDictionary();
             Assert.False(dictionary.IsSynchronized, "TestICollection:  FAILED.  IsSynchronized returned true!");
 
             Assert.Throws<NotSupportedException>(() => { var obj = dictionary.SyncRoot; });
@@ -767,7 +765,7 @@ namespace Portable.ConcurrentDictionary.Tests
             // "TestICollection:  FAILED.  CopyTo didn't throw AORE when negative index passed");
 
             //add one item to the dictionary
-            ((IntergerConcurrentDictionary)dictionary).TryAdd(1, 1);
+            ((IntegerConcurrentDictionary)dictionary).TryAdd(1, 1);
             Assert.Throws<ArgumentException>(() => dictionary.CopyTo(new object[] { }, 0));
             // "TestICollection:  FAILED.  CopyTo didn't throw AE when the Array size is smaller than the dictionary count");
         }
@@ -775,7 +773,7 @@ namespace Portable.ConcurrentDictionary.Tests
         [Fact]
         public static void TestClear()
         {
-            var dictionary = new IntergerConcurrentDictionary();
+            var dictionary = new IntegerConcurrentDictionary();
             for (var i = 0; i < 10; i++)
                 dictionary.TryAdd(i, i);
 

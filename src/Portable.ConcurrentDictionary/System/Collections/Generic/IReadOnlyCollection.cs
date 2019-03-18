@@ -1,6 +1,5 @@
 ﻿namespace System.Collections.Generic
 {
-
 #if NET20 || NET35 || NET40 || PORTABLE
     /// <summary>
     /// Represents a strongly-typed, read-only collection of elements.
@@ -28,5 +27,4 @@
 
     }
 #endif
-
 }
